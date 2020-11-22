@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TabsPageRoutingModule } from './tabs-routing.module';
+import { MathAuctionsPageRoutingModule } from './math-auctions-routing.module';
 
-import { TabsPage } from './tabs.page';
-import {TabsRoutingModule} from './tabs.router.module';
+import { MathAuctionsPage } from './math-auctions.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabsPageRoutingModule
+    MathAuctionsPageRoutingModule
   ],
-  declarations: [TabsPage]
+  declarations: [MathAuctionsPage]
 })
-export class TabsPageModule {}
+export class MathAuctionsPageModule {}

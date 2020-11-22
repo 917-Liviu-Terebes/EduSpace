@@ -5,17 +5,30 @@ import {NgModule} from '@angular/core';
 
 const routes: Routes = [
     {
-        path: 'feed',
-        loadChildren: () => import('../feed/feed.module').then( m => m.FeedPageModule)
+      path: '',
+      component: TabsPage,
+        children: [
+            {
+                path: 'profile',
+                loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule)
+            },
+            {
+                path: 'welcome-cards',
+                loadChildren: () => import('../welcome-cards/welcome-cards.module').then(m => m.WelcomeCardsPageModule)
+            },
+            {
+                path: '',
+                redirectTo: '/tabs',
+                pathMatch: 'full'
+            }
+        ]
     },
     {
-        path: 'uploader',
-        loadChildren: () => import('../uploader/uploader.module').then( m => m.UploaderPageModule)
-    },
-    {
-        path: 'profile',
-        loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
-    },
+        path: '',
+        redirectTo: '/tabs',
+        pathMatch: 'full'
+    }
+
 ];
 
 @NgModule({
@@ -24,4 +37,4 @@ const routes: Routes = [
     ],
     exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class TabsRoutingModule { }

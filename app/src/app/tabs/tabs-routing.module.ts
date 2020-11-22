@@ -6,7 +6,27 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: '',
-    component: TabsPage
+    component: TabsPage,
+    children: [
+      {
+        path: 'profile',
+        loadChildren: () => import('../profile/profile.module').then(m => m.ProfilePageModule)
+      },
+      {
+        path: 'welcome-cards',
+        loadChildren: () => import('../welcome-cards/welcome-cards.module').then(m => m.WelcomeCardsPageModule)
+      },
+      {
+        path: '',
+        redirectTo: '/tabs/welcome-cards',
+        pathMatch: 'full'
+      }
+    ]
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/welcome-cards',
+    pathMatch: 'full'
   }
 ];
 
